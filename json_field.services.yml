@@ -1,0 +1,5 @@
+services:
+  json_field.views:
+    class: Drupal\json_field\JSONViews
+    arguments: ["@entity.manager"]
+
