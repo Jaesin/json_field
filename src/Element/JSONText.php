@@ -44,12 +44,6 @@ class JSONText extends RenderElement {
       '#markup' => new FormattableMarkup('<pre><code>@json</code></pre>', ['@json' => JsonMarkup::create($element['#text'])]),
     ];
 
-    // Perform filtering.
-    $metadata = BubbleableMetadata::createFromRenderArray($markup_element);
-
-    // Set the updated bubbleable rendering metadata.
-    $metadata->applyTo($markup_element);
-
     return $markup_element;
   }
 }

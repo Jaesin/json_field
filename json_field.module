@@ -31,3 +31,25 @@ function json_field_theme() {
 
   return $theme;
 }
+
+/**
+ * Implements hook_libraries_info().
+ */
+function image_widget_crop_libraries_info() {
+  $libraries = [
+    'jsonview' => [
+      'name' => 'jsonview',
+      'vendor url' => 'https://github.com/yesmeck/jquery-jsonview/releases',
+      'download url' => 'https://github.com/yesmeck/jquery-jsonview/archive/v1.2.3.tar.gz',
+      'files' => [
+        'js' => [
+          'dist/jquery.jsonview.js' => [],
+        ],
+        'css' => [
+          'dist/jquery.jsonview.css' => [],
+        ],
+      ],
+    ],
+  ];
+  return $libraries;
+}
