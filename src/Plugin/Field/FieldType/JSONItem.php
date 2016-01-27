@@ -30,24 +30,24 @@ use Drupal\Core\TypedData\DataDefinition;
 class JSONItem extends FieldItemBase {
 
   /**
-   * 2^8-1
+   * Schema API 255 varchar.
    */
   const SIZE_SMALL = 255;
 
   /**
-   * 2^16-1
+   * Schema API normal text 16KB (16*2^10).
    */
-  const SIZE_NORMAL = 65535;
+  const SIZE_NORMAL = 16384;
 
   /**
-   * 2^24-1
+   * Schema API medium text 16MB (16*2^20).
    */
-  const SIZE_MEDIUM = 16777215;
+  const SIZE_MEDIUM = 16777216;
 
   /**
-   * 2^32-1
+   * Schema API big text 4GB (4*2^30).
    */
-  const SIZE_BIG = 4294967295;
+  const SIZE_BIG = 4294967296;
 
   /**
    * {@inheritdoc}
@@ -68,10 +68,10 @@ class JSONItem extends FieldItemBase {
       '#type' => 'select',
       '#title' => $this->t('Maximum size'),
       '#options' => [
-        static::SIZE_SMALL => t('255 Byte'),
-        static::SIZE_NORMAL - 1 => t('64 KB'),
-        static::SIZE_MEDIUM - 1 => t('16 MB'),
-        static::SIZE_BIG - 1 => t('4 GB'),
+        static::SIZE_SMALL => t('255 Characters'),
+        static::SIZE_NORMAL => t('64 KB'),
+        static::SIZE_MEDIUM => t('16 MB'),
+        static::SIZE_BIG => t('4 GB'),
       ],
     ];
 

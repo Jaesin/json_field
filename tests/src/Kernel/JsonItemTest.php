@@ -9,6 +9,7 @@ namespace Drupal\Tests\json_field\Kernel;
 
 use Drupal\Core\Database\Connection;
 use Drupal\entity_test\Entity\EntityTest;
+use Drupal\json_field\Plugin\Field\FieldType\JSONItem;
 
 /**
  * @coversDefaultClass \Drupal\json_field\Plugin\Field\FieldType\JSONItem
@@ -74,22 +75,22 @@ class JsonItemTest extends KernelTestBase {
 
   public function providerTestSchemaSize() {
     $data = [];
-    $data[] = [pow(2, 8) - 1, [
+    $data[] = [JSONItem::SIZE_SMALL, [
       'type' => 'varchar',
       'not null' => 1,
       'length' => 255,
     ]];
-    $data[] = [pow(2, 16) - 1, [
+    $data[] = [JSONItem::SIZE_NORMAL, [
       'type' => 'text',
       'not null' => 1,
       'size' => 'normal',
     ]];
-    $data[] = [pow(2, 24) - 1, [
+    $data[] = [JSONItem::SIZE_MEDIUM, [
       'type' => 'text',
       'not null' => 1,
       'size' => 'medium',
     ]];
-    $data[] = [pow(2, 32) - 1, [
+    $data[] = [JSONItem::SIZE_BIG, [
       'type' => 'text',
       'not null' => 1,
       'size' => 'big',
