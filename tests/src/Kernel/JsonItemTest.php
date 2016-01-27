@@ -55,7 +55,7 @@ class JsonItemTest extends KernelTestBase {
 
     $constraint_list = $entity->validate()->getByField('test_json_field');
     $this->assertEquals(1, $constraint_list->count());
-    $this->assertEquals('The supplied value is not valid JSON data (Syntax error).', $constraint_list->get(0)->getMessage());
+    $this->assertEquals('The supplied value is not valid JSON data (@error).', $constraint_list->get(0)->getMessage()->getUntranslatedString());
   }
 
   /**
