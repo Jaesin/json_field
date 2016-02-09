@@ -120,6 +120,44 @@ class JSONItem extends FieldItemBase {
   }
 
   /**
+   * Calculates max character length for a field value.
+   */
+  public function getMaxLength() {
+    $size = $this->getSetting('size');
+    switch ($size) {
+
+      // Varchar columns.
+      case static::SIZE_SMALL:
+        return static::SIZE_SMALL;
+
+      // Text columns -- we use utf8mb4 so the maximum length is size / 4.
+      default:
+        return floor($size / 4);
+
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getConstraints() {
+    $constraint_manager = \Drupal::typedDataManager()->getValidationConstraintManager();
+    $constraints = parent::getConstraints();
+
+    $max_length = $this->getMaxLength();
+    $constraints[] = $constraint_manager->create('ComplexData', array(
+      'value' => [
+        'Length' => [
+          'max' => $max_length,
+          'maxMessage' => t('%name: the text may not be longer than @max characters.', array('%name' => $this->getFieldDefinition()->getLabel(), '@max' => $max_length)),
+        ],
+      ],
+    ));
+
+    return $constraints;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {

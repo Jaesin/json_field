@@ -9,6 +9,7 @@ namespace Drupal\Tests\json_field\Kernel;
 
 use Drupal\Core\Database\Connection;
 use Drupal\entity_test\Entity\EntityTest;
+use Drupal\Core\Validation\Plugin\Validation\Constraint\LengthConstraint;
 use Drupal\json_field\Plugin\Field\FieldType\JSONItem;
 
 /**
@@ -56,6 +57,45 @@ class JsonItemTest extends KernelTestBase {
     $constraint_list = $entity->validate()->getByField('test_json_field');
     $this->assertEquals(1, $constraint_list->count());
     $this->assertEquals('The supplied value is not valid JSON data (@error).', $constraint_list->get(0)->getMessage()->getUntranslatedString());
+  }
+
+  /**
+   * Test character limit constraints.
+   *
+   * @dataProvider providerTestCharacterLimit
+   */
+  public function testCharacterLimit($size, $limit) {
+    $storage = [
+      'settings' => [
+        'size' => $size,
+      ],
+    ];
+    $this->createTestField($storage);
+
+    $entity = EntityTest::create([
+      // Valid JSON 1 character larger than $limit.
+      'test_json_field' => '"' . str_repeat('x', $limit - 1) . '"',
+    ]);
+
+    $constraint_list = $entity->validate()->getByField('test_json_field');
+    $this->assertEquals(1, $constraint_list->count());
+    /** @var \Symfony\Component\Validator\ConstraintViolation $violation */
+    $violation = $constraint_list->get(0);
+    $this->assertTrue($violation->getConstraint() instanceof LengthConstraint);
+  }
+
+  /**
+   * Data provider.
+   *
+   * @see testCharacterLimit()
+   */
+  public function providerTestCharacterLimit() {
+    return [
+      [JSONItem::SIZE_SMALL, JSONItem::SIZE_SMALL],
+      [JSONItem::SIZE_NORMAL, JSONItem::SIZE_NORMAL / 4],
+      [JSONItem::SIZE_MEDIUM, JSONItem::SIZE_MEDIUM / 4],
+      // JSONItem::SIZE_BIG is too large to test like this.
+    ];
   }
 
   /**
