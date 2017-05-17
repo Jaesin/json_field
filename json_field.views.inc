@@ -16,5 +16,5 @@ use Drupal\field\FieldStorageConfigInterface;
  */
 function json_field_field_views_data(FieldStorageConfigInterface $field_storage) {
   // Use the JSONViews service to get the views data.
-  return \Drupal::service('json_field.views')->getViewsFieldData($field_storage);
+  return $this->container->get('json_field.views')->getViewsFieldData($field_storage);
 }

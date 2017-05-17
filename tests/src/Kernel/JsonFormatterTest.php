@@ -33,7 +33,7 @@ class JsonFormatterTest extends KernelTestBase {
 
     $build = $entity_view_display->build($entity);
 
-    $content = \Drupal::service('renderer')->renderRoot($build);
+    $content = $this->container->get('renderer')->renderRoot($build);
     $this->assertEquals('<pre><code>[]</code></pre>', $content);
   }
 
@@ -54,7 +54,7 @@ class JsonFormatterTest extends KernelTestBase {
     $entity->save();
 
     $build = $entity_view_display->build($entity);
-    $content = \Drupal::service('renderer')->renderRoot($build);
+    $content = $this->container->get('renderer')->renderRoot($build);
     $this->assertEquals('<pre><code>{"Looking for a":"complication"}</code></pre>', $content);
   }
 
