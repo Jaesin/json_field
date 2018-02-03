@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\json_field\Kernel\JsonItemTest.
- */
-
 namespace Drupal\Tests\json_field\Kernel;
 
 use Drupal\Core\Database\Connection;
@@ -14,10 +9,14 @@ use Drupal\json_field\Plugin\Field\FieldType\JSONItem;
 
 /**
  * @coversDefaultClass \Drupal\json_field\Plugin\Field\FieldType\JSONItem
+ *
  * @group json_field
  */
 class JsonItemTest extends KernelTestBase {
 
+  /**
+   *
+   */
   public function testFieldCreate() {
     $this->createTestField();
 
@@ -29,6 +28,9 @@ class JsonItemTest extends KernelTestBase {
     $this->assertEquals(json_encode([]), $entity->test_json_field->value);
   }
 
+  /**
+   *
+   */
   public function testFieldCreateWithDefaultValue() {
     $field_settings = [
       'default_value' => [
@@ -39,13 +41,15 @@ class JsonItemTest extends KernelTestBase {
     ];
     $this->createTestField([], $field_settings);
 
-    $entity = EntityTest::create([
-    ]);
+    $entity = EntityTest::create([]);
     $entity->save();
 
     $this->assertEquals(json_encode(['hey' => 'joe']), $entity->test_json_field->value);
   }
 
+  /**
+   *
+   */
   public function testValidation() {
     $this->createTestField();
 
@@ -113,6 +117,9 @@ class JsonItemTest extends KernelTestBase {
     $this->assertEquals($expected, $schema['fields']['test_json_field_value']);
   }
 
+  /**
+   *
+   */
   public function providerTestSchemaSize() {
     $data = [];
     $data[] = [JSONItem::SIZE_SMALL, [
@@ -139,6 +146,9 @@ class JsonItemTest extends KernelTestBase {
     return $data;
   }
 
+  /**
+   *
+   */
   protected function getTableSchema(Connection $connection, $table) {
     // Check this is MySQL.
     if ($connection->databaseType() !== 'mysql') {
@@ -349,16 +359,18 @@ class JsonItemTest extends KernelTestBase {
    *   The order string to append to the query.
    */
   protected function getFieldOrder(Connection $connection, $table) {
-    // @todo this is MySQL only since there are no Database API functions for
+    // @todo This is MySQL only since there are no Database API functions for
     // table column data.
-    // @todo this code is duplicated in `core/scripts/migrate-db.sh`.
+    // @todo This code is duplicated in `core/scripts/migrate-db.sh`.
     $connection_info = $connection->getConnectionOptions();
     // Order by primary keys.
     $order = '';
-    $query = "SELECT `COLUMN_NAME` FROM `information_schema`.`COLUMNS`
-    WHERE (`TABLE_SCHEMA` = '" . $connection_info['database'] . "')
-    AND (`TABLE_NAME` = '{" . $table . "}') AND (`COLUMN_KEY` = 'PRI')
-    ORDER BY COLUMN_NAME";
+    $query = "SELECT `COLUMN_NAME`
+      FROM `information_schema`.`COLUMNS`
+      WHERE (`TABLE_SCHEMA` = '" . $connection_info['database'] . "')
+      AND (`TABLE_NAME` = '{" . $table . "}')
+      AND (`COLUMN_KEY` = 'PRI')
+      ORDER BY COLUMN_NAME";
     $results = $connection->query($query);
     while (($row = $results->fetchAssoc()) !== FALSE) {
       $order .= $row['COLUMN_NAME'] . ', ';

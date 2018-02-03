@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\json_field\Plugin\Field\FieldFormatter\JSONFormatter.
- */
-
 namespace Drupal\json_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;

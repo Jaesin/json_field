@@ -1,10 +1,13 @@
 @charset "UTF-8";
-/* @file json_field.css */
+/**
+ * @file
+ * Custom CSS for the JSON Field module.
+ */
 
 /* CSS Overrides */
 .jsonview {
-  background-color: #EEE;
-  border: solid 1px #CCC;
+  background-color: #eee;
+  border: solid 1px #ccc;
   overflow: scroll;
   height: 400px;
   padding: 10px;

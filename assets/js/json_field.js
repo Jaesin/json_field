@@ -1,6 +1,6 @@
 /**
  * @file
- *   Attaches behavior for the JSON FIELD module.
+ * Attaches behavior for the JSON FIELD module.
  */
 
 (function ($, Drupal, drupalSettings) {

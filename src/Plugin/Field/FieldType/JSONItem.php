@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\json_field\Plugin\Field\FieldType\JSONItem.
- */
-
 namespace Drupal\json_field\Plugin\Field\FieldType;
 
 use Drupal\Component\Utility\Random;
@@ -100,16 +95,19 @@ class JSONItem extends FieldItemBase {
         $schema['columns']['value']['type'] = 'varchar';
         $schema['columns']['value']['length'] = static::SIZE_SMALL;
         break;
+
+      // We use utf8mb4 so the maximum length is size / 4, so we cannot use type
+      // 'varchar' with size of 65535.
       case static::SIZE_NORMAL:
-        // We use utf8mb4 so the maximum length is size / 4, so we cannot use
-        // juse type 'varchar' with size of 65535.
         $schema['columns']['value']['type'] = 'text';
         $schema['columns']['value']['size'] = 'normal';
         break;
+
       case static::SIZE_MEDIUM:
         $schema['columns']['value']['type'] = 'text';
         $schema['columns']['value']['size'] = 'medium';
         break;
+
       case static::SIZE_BIG:
         $schema['columns']['value']['type'] = 'text';
         $schema['columns']['value']['size'] = 'big';
@@ -133,7 +131,6 @@ class JSONItem extends FieldItemBase {
       // Text columns -- we use utf8mb4 so the maximum length is size / 4.
       default:
         return floor($size / 4);
-
     }
   }
 
@@ -152,9 +149,9 @@ class JSONItem extends FieldItemBase {
           'maxMessage' => t('%name: the text may not be longer than @max characters.', array('%name' => $this->getFieldDefinition()->getLabel(), '@max' => $max_length)),
         ],
       ],
-    ));
+      ));
 
-    return $constraints;
+      return $constraints;
   }
 
   /**
@@ -162,7 +159,7 @@ class JSONItem extends FieldItemBase {
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
     $random = new Random();
-    $values['value'] = '{"foo": "' . $random->word(mt_rand(1, 2000)). '""}';
+    $values['value'] = '{"foo": "' . $random->word(mt_rand(1, 2000)) . '""}';
     return $values;
   }
 
@@ -173,4 +170,5 @@ class JSONItem extends FieldItemBase {
     $value = $this->get('value')->getValue();
     return $value === NULL || $value === '';
   }
+
 }

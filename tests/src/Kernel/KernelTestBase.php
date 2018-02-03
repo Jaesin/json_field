@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\json_field\Kernel\KernelTestBase.
- */
-
 namespace Drupal\Tests\json_field\Kernel;
 
 use Drupal\Component\FileCache\FileCacheFactory;
@@ -13,12 +8,21 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase as DrupalKernelTestBase;
 
+/**
+ *
+ */
 abstract class KernelTestBase extends DrupalKernelTestBase {
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['json_field', 'field', 'user', 'entity_test', 'serialization'];
+  public static $modules = [
+    'json_field',
+    'field',
+    'user',
+    'entity_test',
+    'serialization',
+  ];
 
   /**
    * {@inheritdoc}
@@ -31,6 +35,9 @@ abstract class KernelTestBase extends DrupalKernelTestBase {
     $this->installEntitySchema('entity_test');
   }
 
+  /**
+   *
+   */
   protected function createTestField($field_storage_properties = [], $field_properties = []) {
     $field_storage = FieldStorageConfig::create([
       'field_name' => 'test_json_field',

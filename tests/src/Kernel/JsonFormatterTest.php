@@ -1,20 +1,20 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\json_field\Kernel\JsonFormatterTest.
- */
-
 namespace Drupal\Tests\json_field\Kernel;
+
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\entity_test\Entity\EntityTest;
 
 /**
  * @coversDefaultClass \Drupal\json_field\Plugin\Field\FieldFormatter\JSONFormatter
+ *
  * @group json_field
  */
 class JsonFormatterTest extends KernelTestBase {
 
+  /**
+   *
+   */
   public function testFormatter() {
     $this->createTestField();
 
@@ -37,6 +37,9 @@ class JsonFormatterTest extends KernelTestBase {
     $this->assertEquals('<pre><code>[]</code></pre>', $content);
   }
 
+  /**
+   *
+   */
   public function testFormatterWithData() {
     $this->createTestField([]);
 

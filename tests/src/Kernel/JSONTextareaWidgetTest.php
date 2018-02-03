@@ -1,19 +1,19 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\json_field\Kernel\JSONTextareaWidgetTest.
- */
-
 namespace Drupal\Tests\json_field\Kernel;
+
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 
 /**
  * @coversDefaultClass \Drupal\json_field\Plugin\Field\FieldWidget\JSONTextareaWidget
+ *
  * @group json_field
  */
 class JSONTextareaWidgetTest extends KernelTestBase {
 
+  /**
+   *
+   */
   public function testWidgetSettings() {
     $this->createTestField();
 

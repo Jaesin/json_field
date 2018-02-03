@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\json_field\Element\JSONText.
- */
-
 namespace Drupal\json_field\Element;
 
 use Drupal\Component\Render\FormattableMarkup;
@@ -28,7 +23,7 @@ class JSONText extends RenderElement {
       '#text' => '',
       '#langcode' => '',
       '#pre_render' => [
-        [$class, 'preRenderText'],
+      [$class, 'preRenderText'],
       ],
     );
   }
@@ -46,4 +41,5 @@ class JSONText extends RenderElement {
 
     return $markup_element;
   }
+
 }

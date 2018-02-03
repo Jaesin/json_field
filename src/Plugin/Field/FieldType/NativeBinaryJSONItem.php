@@ -19,6 +19,7 @@ use Drupal\Core\TypedData\DataDefinition;
  * )
  */
 class NativeBinaryJSONItem extends NativeJSONItem {
+
   /**
    * {@inheritdoc}
    */
@@ -44,4 +45,5 @@ class NativeBinaryJSONItem extends NativeJSONItem {
 
     return $properties;
   }
+
 }

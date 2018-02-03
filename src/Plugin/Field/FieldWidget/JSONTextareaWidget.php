@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\json_field\Plugin\Field\FieldWidget\JSONTextareaWidget.
- */
-
 namespace Drupal\json_field\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\Plugin\Field\FieldWidget\StringTextareaWidget;

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\json_field\JSONViewsInterface.
- */
-
 namespace Drupal\json_field;
 
 use Drupal\field\FieldStorageConfigInterface;
@@ -20,6 +15,7 @@ interface JSONViewsInterface {
    * Gets the views data for a field instance.
    *
    * @param \Drupal\field\FieldStorageConfigInterface $field_storage
+   *
    * @return array
    *   The json field views data.
    */

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\json_field\Plugin\views\field\JSONDataField.
- */
-
 namespace Drupal\json_field\Plugin\views\field;
 
 use Drupal\rest\Plugin\views\display\RestExport;
@@ -21,7 +16,6 @@ use Symfony\Component\Serializer\SerializerInterface;
  * @ViewsField("json_data")
  */
 class JSONDataField extends FieldPluginBase {
-
 
   /**
    * The serializer which serializes the views result.
@@ -51,7 +45,6 @@ class JSONDataField extends FieldPluginBase {
     $this->serializer = $serializer;
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -65,7 +58,6 @@ class JSONDataField extends FieldPluginBase {
   protected function allowAdvancedRender() {
     return FALSE;
   }
-
 
   /**
    * {@inheritdoc}
@@ -90,4 +82,5 @@ class JSONDataField extends FieldPluginBase {
   public function advancedRender(ResultRow $values) {
     return $this->render($values);
   }
+
 }

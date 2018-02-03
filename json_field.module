@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains json_field.module.
+ * Primary hook implementations for the JSON Field module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;

@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- *   Contains \Drupal\json_field\Plugin\Validation\Constraint\ValidJSONConstraintValidator.
- */
 
 namespace Drupal\json_field\Plugin\Validation\Constraint;
 
@@ -51,9 +47,11 @@ class ValidJSONConstraintValidator extends ConstraintValidator implements Contai
     }
     try {
       $this->serializer->decode($value->value, 'json');
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       // Add a constraint violation with the `json_decode` message on failure.
       $this->context->addViolation($constraint->message, ['@error' => $e->getMessage()]);
     }
   }
+
 }

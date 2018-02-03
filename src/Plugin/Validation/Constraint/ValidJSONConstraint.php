@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- *   Contains \Drupal\json_field\Plugin\Validation\Constraint\ValidJSONConstraint.
- */
 
 namespace Drupal\json_field\Plugin\Validation\Constraint;
 
