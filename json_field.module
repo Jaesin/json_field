@@ -35,7 +35,7 @@ function json_field_theme() {
 /**
  * Implements hook_libraries_info().
  */
-function image_widget_crop_libraries_info() {
+function json_field_libraries_info() {
   $libraries = [
     'jsonview' => [
       'name' => 'jsonview',
