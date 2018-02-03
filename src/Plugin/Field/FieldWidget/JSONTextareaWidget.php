@@ -16,7 +16,9 @@ use Drupal\Core\Field\Plugin\Field\FieldWidget\StringTextareaWidget;
  *   id = "json_textarea",
  *   label = @Translation("Json textarea (multiple rows)"),
  *   field_types = {
- *     "json"
+ *     "json",
+ *     "json_native",
+ *     "json_native_binary"
  *   }
  * )
  */

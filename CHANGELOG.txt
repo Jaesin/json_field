@@ -5,6 +5,8 @@ JSON Field 8.x-1.x-dev, xxxx-xx-xx
   replaced.
 #2765707 by marcoliver, jefuri: Not working with image_widget_crop.
 #2941865 by DamienMcKenna: Add a CHANGELOG.txt file.
+#2880415 by garphy, DamienMcKenna, jefuri: Add support for JSON and JSONB
+  database field types.
 
 
 JSON Field 8.x-1.0-beta2, 2017-02-24

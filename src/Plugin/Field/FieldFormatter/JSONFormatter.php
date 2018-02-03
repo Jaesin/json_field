@@ -18,6 +18,8 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   label = @Translation("JSON"),
  *   field_types = {
  *     "json",
+ *     "json_native",
+ *     "json_native_binary",
  *   },
  *   quickedit = {
  *     "editor" = "plain_text"
