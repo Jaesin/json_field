@@ -22,9 +22,7 @@ class JSONText extends RenderElement {
     return array(
       '#text' => '',
       '#langcode' => '',
-      '#pre_render' => [
-      [$class, 'preRenderText'],
-      ],
+      '#pre_render' => [[$class, 'preRenderText']],
     );
   }
 

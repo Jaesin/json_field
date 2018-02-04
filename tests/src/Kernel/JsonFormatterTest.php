@@ -13,7 +13,7 @@ use Drupal\entity_test\Entity\EntityTest;
 class JsonFormatterTest extends KernelTestBase {
 
   /**
-   *
+   * Tests that the formatter is rendering an empty array.
    */
   public function testFormatter() {
     $this->createTestField();
@@ -38,7 +38,7 @@ class JsonFormatterTest extends KernelTestBase {
   }
 
   /**
-   *
+   * Tests that the formatter is rendering data.
    */
   public function testFormatterWithData() {
     $this->createTestField([]);

@@ -15,7 +15,7 @@ use Drupal\json_field\Plugin\Field\FieldType\JSONItem;
 class JsonItemTest extends KernelTestBase {
 
   /**
-   *
+   * Tests that field values are saved a retrievable.
    */
   public function testFieldCreate() {
     $this->createTestField();
@@ -29,7 +29,7 @@ class JsonItemTest extends KernelTestBase {
   }
 
   /**
-   *
+   * Tests that default values are used when no value is added.
    */
   public function testFieldCreateWithDefaultValue() {
     $field_settings = [
@@ -48,7 +48,7 @@ class JsonItemTest extends KernelTestBase {
   }
 
   /**
-   *
+   * Tests the validators.
    */
   public function testValidation() {
     $this->createTestField();

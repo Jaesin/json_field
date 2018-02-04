@@ -12,7 +12,7 @@ use Drupal\Core\Entity\Entity\EntityFormDisplay;
 class JSONTextareaWidgetTest extends KernelTestBase {
 
   /**
-   *
+   * Tests that we can save form settings without error.
    */
   public function testWidgetSettings() {
     $this->createTestField();

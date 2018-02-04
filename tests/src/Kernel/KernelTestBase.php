@@ -36,7 +36,10 @@ abstract class KernelTestBase extends DrupalKernelTestBase {
   }
 
   /**
+   * Creates a field to use in tests.
    *
+   * @param array $field_storage_properties
+   * @param array $field_properties
    */
   protected function createTestField($field_storage_properties = [], $field_properties = []) {
     $field_storage = FieldStorageConfig::create([

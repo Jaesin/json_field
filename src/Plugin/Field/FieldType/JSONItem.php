@@ -149,9 +149,9 @@ class JSONItem extends FieldItemBase {
           'maxMessage' => t('%name: the text may not be longer than @max characters.', array('%name' => $this->getFieldDefinition()->getLabel(), '@max' => $max_length)),
         ],
       ],
-      ));
+    ));
 
-      return $constraints;
+    return $constraints;
   }
 
   /**
