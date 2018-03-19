@@ -1,3 +1,7 @@
+JSON Field 8.x-1.x-dev, xxxx-xx-xx
+----------------------------------
+
+
 JSON Field 8.x-1.0-rc1, 2018-03-19
 ----------------------------------
 #2712243 by GGH: Code quality improvements in json_field.js per ESLint.
