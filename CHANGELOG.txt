@@ -1,4 +1,4 @@
-JSON Field 8.x-1.x-dev, xxxx-xx-xx
+JSON Field 8.x-1.0-rc1, 2018-03-19
 ----------------------------------
 #2712243 by GGH: Code quality improvements in json_field.js per ESLint.
 #2703889 by pashupathi nath gajawada: Deprecated \Drupal::service method
@@ -7,7 +7,7 @@ JSON Field 8.x-1.x-dev, xxxx-xx-xx
 #2941865 by DamienMcKenna: Add a CHANGELOG.txt file.
 #2880415 by garphy, DamienMcKenna, jefuri: Add support for JSON and JSONB
   database field types.
-#2941860 by DamienMcKenna: Codebase cleanup.
+#2941860 by DamienMcKenna, Jaesin: Codebase cleanup.
 #2941872 by sravya_12, DamienMcKenna, Jaesin: Add a composer.json file.
 
 
