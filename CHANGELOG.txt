@@ -1,5 +1,7 @@
 JSON Field 8.x-1.x-dev, xxxx-xx-xx
 ----------------------------------
+#2955173 by kruhak, garphy, Sharique, pifagor: Got a fatal error after module
+  installation about using $this not in object context.
 
 
 JSON Field 8.x-1.0-rc1, 2018-03-19
