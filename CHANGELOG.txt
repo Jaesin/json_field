@@ -6,6 +6,7 @@ JSON Field 8.x-1.x-dev, xxxx-xx-xx
   dependencies.
 #3000278 by lamp5, RAFA3L: Library path.
 #3004726 by jackbravo: Add default value to storage settings form.
+#3030770 by miiimooo: Jsonview in paragraph.
 
 
 JSON Field 8.x-1.0-rc1, 2018-03-19

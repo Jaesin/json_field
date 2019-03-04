@@ -23,10 +23,8 @@
    */
   Drupal.behaviors.json_field = {
     attach: function (context) {
-      console.log($(context).find('.field.field--type-json .field__item').length);
       // Initialize the Quick Edit app once per page load.
-      $(context).find('.field.field--type-json .field__item').once('json-field-init').each(function () {
-        console.log($(this).find('pre code').text().length);
+      $(context).find('.field.field--type-json.field__item').once('json-field-init').each(function () {
         $(this).JSONView($(this).find('pre code').text());
       });
     }
