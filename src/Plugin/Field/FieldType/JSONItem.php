@@ -62,6 +62,7 @@ class JSONItem extends FieldItemBase {
     $elements['size'] = [
       '#type' => 'select',
       '#title' => $this->t('Maximum size'),
+      '#default_value' => $this->getSetting('size'),
       '#options' => [
         static::SIZE_SMALL => t('255 Characters'),
         static::SIZE_NORMAL => t('64 KB'),
