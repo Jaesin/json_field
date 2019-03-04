@@ -4,6 +4,7 @@ JSON Field 8.x-1.x-dev, xxxx-xx-xx
   installation about using $this not in object context.
 #3006999 by chipway, voleger: Apply new {project}:{module} format for
   dependencies.
+#3000278 by lamp5, RAFA3L: Library path.
 
 
 JSON Field 8.x-1.0-rc1, 2018-03-19
