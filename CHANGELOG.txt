@@ -1,3 +1,7 @@
+JSON Field 8.x-1.x-dev, xxxx-xx-xx
+----------------------------------
+
+
 JSON Field 8.x-1.0-rc3, 2019-03-03
 ----------------------------------
 #2955173 by kruhak, garphy, Sharique, pifagor: Got a fatal error after module
